@@ -67,9 +67,7 @@ else if(sc_input.equals("p")) {
 else if(sc_input.equals("q")) {
 	finished = true;
 }
-else {
-	
-}
+
 }
 	}
 
