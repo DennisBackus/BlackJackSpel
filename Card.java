@@ -6,6 +6,7 @@ String card_name;
 String icon_name;
 int points;
 String full_name;
+boolean isAce;
 public int getCard_id() {
 	return card_id;
 }
@@ -19,7 +20,8 @@ public void setCard_id(int card_id) {
 	else if(card_id == 13){card_name = "Koning";
 		points = 10;}
 	else if(card_id == 14){card_name = "Aas";
-		points = 11;}
+		points = 11;
+		isAce = true;}
 	else {
 		points = card_id;}
 }

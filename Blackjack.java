@@ -24,8 +24,11 @@ if(sc_input.equals("k")) {
 	Card card2 = Deck.get(0);
 	Deck.remove(0);
 	Hand.add(card2);
+	if(card1.isAce == true && card2.isAce == true) {
+		card2.points = 1;
+	}
 	total_points += Hand.get(0).points + Hand.get(1).points; //totale hand punten berekenen
-
+	
 	if(total_points == 21) {
 		System.out.println("BlackJack!");
 		finished = true;
@@ -40,7 +43,7 @@ if(sc_input.equals("k")) {
 		Hand.add(card1);
 		total_points += card1.points;
 		if(total_points > 21) { //kijk of je boven de 21 uit komt
-			if(card1.card_id == 14) { //kijk of de kaart die je trok een aas was, zo ja, verander de punten die de aas geeft naar 1
+			if(card1.isAce == true) { //kijk of de kaart die je trok een aas was, zo ja, verander de punten die de aas geeft naar 1
 				total_points -= 10; // -10 punten (het verschil tussen aas 11 en aas 1
 				card1.points = 1; //verander de punten die die kaart gaf naar 1
 			}
