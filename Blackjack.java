@@ -1,3 +1,4 @@
+package BlackJack;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -24,16 +25,11 @@ if(sc_input.equals("k")) {
 	Deck.remove(0);
 	Hand.add(card2);
 	total_points += Hand.get(0).points + Hand.get(1).points; //totale hand punten berekenen
-/*	boolean aces = Spel.checkforAces(Hand, total_points);
-	if(aces == true) {                                       //hier gaat het nog mis, doet niks dit
-		for(int i = 0; i < Hand.size(); i++) {
-			if(Hand.get(i).card_id == 14) {
-				Hand.get(i).points = 1;
-				total_points =- 10;
-			}
+
+	if(total_points == 21) {
+		System.out.println("BlackJack!");
+		finished = true;
 	}
-	
-	} */
 	
 	System.out.println("U trok de kaarten " + Hand.get(0).getFullCard_name() + " en " + Hand.get(1).getFullCard_name() + " deze geven samen " + total_points + " punten");
 	
@@ -42,8 +38,20 @@ if(sc_input.equals("k")) {
 		Card card1 = Deck.get(0);
 		Deck.remove(0);
 		Hand.add(card1);
-		System.out.println("U trok de kaart " + card1.getFullCard_name() + " en deze geeft " + card1.points + " punten");
 		total_points += card1.points;
+		if(total_points > 21) { //kijk of je boven de 21 uit komt
+			if(card1.card_id == 14) { //kijk of de kaart die je trok een aas was, zo ja, verander de punten die de aas geeft naar 1
+				total_points -= 10; // -10 punten (het verschil tussen aas 11 en aas 1
+				card1.points = 1; //verander de punten die die kaart gaf naar 1
+			}
+			else {System.out.println("U verliest.");
+			finished = true;}
+		}
+		else if(total_points == 21) {
+			System.out.println("BlackJack!");
+			finished = true;
+		}
+		System.out.println("U trok de kaart " + card1.getFullCard_name() + " en deze geeft " + card1.points + " punt(en)");
 		System.out.println("U heeft nu " + total_points + "punten.");
 	
 	}
