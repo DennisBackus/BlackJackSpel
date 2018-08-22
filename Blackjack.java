@@ -52,6 +52,7 @@ public class Blackjack {
 								System.out.println("Een van uw kaarten was een " + Hand.get(i).full_name + ", maar omdat uw totaal 21 overschreed is de waarde is nu 1");
 
 								hasChanged = true; //dit zorgt ervoor dat als een aas aangepast is, dus total niet meer > 21, dat je niet 'verliest'
+							break;
 							}
 						}
 						if(hasChanged == false){ {System.out.println("U verliest."); //als hij >21 zit en geen aas verandert is --> je verliest
