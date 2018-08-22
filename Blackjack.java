@@ -3,24 +3,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 public class Blackjack {
-	boolean finished = false;
+	boolean finished = false; //basically de aan en uit knop voor het programma
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Blackjack Spel = new Blackjack();
 		Spel.playGame();
-		while(!Spel.finished) {
+		while(!Spel.finished) { //Spel.finished eindigt het hele spel, dan is er geen playAgain meer nodig
 			Spel.playAgain();
 		}
 	}
 
-	void playGame() {
+	void playGame() { //Het spel zelf
 		ArrayList<Card> Deck = createDeck(); //maak een deck aan
 		ArrayList<Card> Hand = new ArrayList(); //maak een lege hand aan
 		Scanner input = new Scanner(System.in);
 		int total_points = 0;
-		boolean rondeFinish = false;
-		while(!rondeFinish) {  //begin spel loop
+		boolean rondeFinish = false; //Ronde is nog niet finished, maar soms moet het programma wel weten wanneer de ronde klaar is, zodat playGame niet eindeloos door loopt
+		while(!rondeFinish) {  //begin ronde loop
 			Collections.shuffle(Deck);  //shuffle deck
 			System.out.println("Voer K in voor een kaart, P in voor een pass, of voer q in om het spel te stoppen");
 			String sc_input = input.next();
@@ -94,15 +94,15 @@ public class Blackjack {
 
 
 	}
-	void playAgain() {
+	void playAgain() { //Hiermee vraagt het programma of we het nog een keer willen spelen of willen afsluiten
 		System.out.println("Wilt u opnieuw spelen? J/N");
 		Scanner input = new Scanner(System.in);
 		String sc_input = input.nextLine();
 		if(sc_input.equals("j") ) {
-			playGame();
+			playGame(); //new game
 		}
 		else if (sc_input.equals("n")) {
-			finished = true;
+			finished = true; //afsluiten
 		}
 
 
