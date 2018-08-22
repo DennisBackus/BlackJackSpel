@@ -1,11 +1,11 @@
 package BlackJack;
 public class Card {
-int card_id;
-int icon_id;
+private int card_id;
+private int icon_id;
 String card_name;
 String icon_name;
 int points;
-String full_name;
+private String full_name;
 boolean isAce;
 public int getCard_id() {
 	return card_id;
