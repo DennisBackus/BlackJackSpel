@@ -86,6 +86,7 @@ public class Blackjack {
 
 			}
 			else if(sc_input.equals("q")) {
+				rondeFinish = true;
 				finished = true;
 			}
 
